@@ -1,0 +1,53 @@
+{
+  "name": "tab-container-component",
+  "version": "1.0.0",
+  "description": "A vuejs and reactjs tab container component.",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc -p src && tsc -p demo",
+    "tslint": "tslint \"src/**/*.ts\" \"src/**/*.tsx\"",
+    "lessc": "lessc src/tab-container.less > dist/tab-container.css",
+    "stylelint": "stylelint \"src/**/*.less\"",
+    "cleancss": "cleancss -o dist/tab-container.min.css dist/tab-container.css",
+    "cleancss-demo": "cleancss -o demo/index.bundle.css dist/tab-container.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css",
+    "clean": "rimraf dist",
+    "file2variable": "file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify",
+    "webpack": "webpack --config demo/webpack.config.js",
+    "rev-static": "rev-static --config demo/rev-static.config.js",
+    "clean-rev": "rimraf demo/**/index.bundle-*.js demo/*.bundle-*.css",
+    "build": "npm run clean-rev && npm run clean && npm run file2variable && npm run tsc && npm run lessc && npm run cleancss && npm run cleancss-demo && npm run webpack && npm run rev-static",
+    "lint": "npm run tslint && npm run stylelint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plantain-00/tab-container-component.git"
+  },
+  "author": "York Yao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plantain-00/tab-container-component/issues"
+  },
+  "homepage": "https://github.com/plantain-00/tab-container-component#readme",
+  "devDependencies": {
+    "@types/react": "15.0.30",
+    "@types/react-dom": "15.5.0",
+    "clean-css-cli": "4.1.5",
+    "file2variable-cli": "1.3.0",
+    "github-fork-ribbon-css": "0.2.1",
+    "less": "2.7.2",
+    "react": "15.6.1",
+    "react-dom": "15.6.1",
+    "rev-static": "2.4.2",
+    "rimraf": "2.6.1",
+    "stylelint": "7.11.1",
+    "stylelint-config-standard": "16.0.0",
+    "tslint": "5.4.3",
+    "typescript": "2.4.0",
+    "vue": "2.3.4",
+    "vue-class-component": "5.0.1",
+    "webpack": "3.0.0"
+  },
+  "dependencies": {
+    "tslib": "1.7.1"
+  }
+}
