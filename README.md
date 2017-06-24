@@ -41,12 +41,12 @@ the online demo: https://plantain-00.github.io/tab-container-component/demo/vue/
 #### reactjs component demo
 
 ```ts
-import { Tab-container } from "tab-container-component/dist/react";
+import { TabContainer } from "tab-container-component/dist/react";
 ```
 
 ```jsx
-<Tab-container data={this.data}>
-</Tab-container>
+<TabContainer data={this.data}>
+</TabContainer>
 ```
 
 the online demo: https://plantain-00.github.io/tab-container-component/demo/react/index.html
@@ -55,12 +55,12 @@ the online demo: https://plantain-00.github.io/tab-container-component/demo/reac
 
 name | type | description
 --- | --- | ---
-data | [Tab-containerData](#tab-container-data-structure)[] | the data of the tab-container
+data | [TabContainerData](#tab-container-data-structure)[] | the data of the tab-container
 
 #### tab-container data structure
 
 ```ts
-type Tab-containerData = {
+type TabContainerData = {
     component: string | Function; // the item component, for vuejs, it is the component name, for reactjs, it is the class object
     data: any; // the data will be passed to the component as `data` props
 };
