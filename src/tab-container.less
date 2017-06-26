@@ -7,4 +7,58 @@
     -webkit-font-smoothing: antialiased;
     user-select: none;
   }
+
+  > .tab-title {
+    border-bottom: 1px solid #ddd;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    height: 44px;
+    margin-top: 0;
+
+    > li {
+      float: left;
+      margin-bottom: -1px;
+      position: relative;
+      display: block;
+
+      > a {
+        margin-right: 2px;
+        line-height: 1.42857143;
+        border: 1px solid transparent;
+        border-radius: 4px 4px 0 0;
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        color: #337ab7;
+        text-decoration: none;
+        background-color: transparent;
+      }
+
+      > span {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        cursor: pointer;
+      }
+
+      &.active {
+        a,
+        a:focus,
+        a:hover {
+          color: #555;
+          cursor: default;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+  }
+
+  > .tab-content {
+    > .inactive {
+      display: none;
+    }
+  }
 }

@@ -12,6 +12,7 @@ A vuejs and reactjs tab container component.
 + vuejs component
 + reactjs component
 + custom component
++ tab can close
 
 #### install
 
@@ -56,12 +57,16 @@ the online demo: https://plantain-00.github.io/tab-container-component/demo/reac
 name | type | description
 --- | --- | ---
 data | [TabContainerData](#tab-container-data-structure)[] | the data of the tab-container
+close | (index: number)=>void | triggered when a tab is going to close
 
 #### tab-container data structure
 
 ```ts
-type TabContainerData = {
+export type TabContainerData = {
+    isActive: boolean;
+    title: string;
     component: string | Function; // the item component, for vuejs, it is the component name, for reactjs, it is the class object
     data: any; // the data will be passed to the component as `data` props
+    canClose?: boolean;
 };
 ```

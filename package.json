@@ -48,6 +48,6 @@
     "webpack": "3.0.0"
   },
   "dependencies": {
-    "tslib": "1.7.1"
+    "tslib": "1"
   }
 }

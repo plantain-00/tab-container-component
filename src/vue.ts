@@ -8,7 +8,32 @@ import { srcVueTemplateHtml } from "./vue-variables";
     props: ["data"],
 })
 class TabContainer extends Vue {
-    data: common.TabContainerData;
+    data: common.TabContainerData[];
+
+    hoveringItem: common.TabContainerData | null = null;
+
+    clickTab(item: common.TabContainerData) {
+        if (item.isActive) {
+            return;
+        }
+        for (const itemData of this.data) {
+            itemData.isActive = false;
+        }
+        item.isActive = true;
+    }
+
+    mouseenter(item: common.TabContainerData) {
+        this.hoveringItem = item;
+    }
+
+    mouseleave(item: common.TabContainerData) {
+        this.hoveringItem = null;
+    }
+
+    close(e: MouseEvent, index: number) {
+        e.stopPropagation();
+        this.$emit("close", index);
+    }
 }
 
 Vue.component("tab-container", TabContainer);
