@@ -3,10 +3,11 @@
         <li v-for="(item, i) in data"
             role="presentation"
             :class="item.isActive ? 'active' : ''"
-            @click="clickTab(item)"
+            @click="clickTab(i)"
             @mouseenter="mouseenter(item)"
             @mouseleave="mouseleave(item)">
-            <a href="javascript:void(0)">{{item.title}}</a>
+            <component v-if="item.titleComponent" :is="item.titleComponent" :data="item.titleData"></component>
+            <a v-else href="javascript:void(0)">{{item.title}}</a>
             <span v-if="item.canClose && hoveringItem === item"
                 @click="close($event, i)">&times;</span>
         </li>

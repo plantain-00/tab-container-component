@@ -13,6 +13,11 @@ Vue.component("tab-page", {
     props: ["data"],
 });
 
+Vue.component("custom-title", {
+    template: `<a href="javascript:void" style="color: red">{{data.title}}{{data.count > 0 ? "(" + data.count + ")" : ""}}</a>`,
+    props: ["data"],
+});
+
 @Component({
     template: `
     <div>
@@ -46,7 +51,23 @@ class App extends Vue {
             data: "tab 2 data",
             canClose: true,
         },
+        {
+            isActive: false,
+            titleComponent: "custom-title",
+            titleData: { title: "custom title", count: 10 },
+            component: "tab-page",
+            data: "tab 3 data",
+            canClose: true,
+        },
     ];
+
+    beforeMount() {
+        setInterval(() => {
+            if (this.data.length >= 4 && this.data[3].titleComponent) {
+                this.data[3].titleData.count--;
+            }
+        }, 1000);
+    }
 
     close(index: number) {
         if (this.data[index].isActive && index >= 1) {

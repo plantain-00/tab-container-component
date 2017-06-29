@@ -11,8 +11,9 @@ A vuejs and reactjs tab container component.
 
 + vuejs component
 + reactjs component
-+ custom component
-+ tab can close
++ content is custom component
++ tab can be closed
++ title can be custom component
 
 #### install
 
@@ -58,13 +59,16 @@ name | type | description
 --- | --- | ---
 data | [TabContainerData](#tab-container-data-structure)[] | the data of the tab-container
 close | (index: number)=>void | triggered when a tab is going to close
+switching | (index: number)=>void | triggered when a tab is going to switch
 
 #### tab-container data structure
 
 ```ts
 export type TabContainerData = {
     isActive: boolean;
-    title: string;
+    title?: string;
+    titleComponent?: string | Function;
+    titleData?: any; // the data will be passed to the titleComponent as `data` props
     component: string | Function; // the item component, for vuejs, it is the component name, for reactjs, it is the class object
     data: any; // the data will be passed to the component as `data` props
     canClose?: boolean;

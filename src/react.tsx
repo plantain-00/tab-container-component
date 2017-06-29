@@ -4,10 +4,15 @@ import * as common from "./common";
 export class TabContainer extends React.Component<{
     data: common.TabContainerData[];
     close?: (index: number) => void;
+    switching?: (index: number) => void;
 }, {}> {
     hoveringItem: common.TabContainerData | null = null;
 
-    clickTab(item: common.TabContainerData) {
+    clickTab(index: number) {
+        if (this.props.switching) {
+            this.props.switching(index);
+        }
+        const item = this.props.data[index];
         if (item.isActive) {
             return;
         }
@@ -38,13 +43,16 @@ export class TabContainer extends React.Component<{
     render() {
         const titles = this.props.data.map((item, i) => {
             const closeIcon = item.canClose && this.hoveringItem === item ? <span onClick={e => this.close(e, i)}>&times;</span> : null;
+            const title = item.titleComponent
+                ? React.createElement(item.titleComponent as React.ComponentClass<{ data: number }>, { data: item.titleData })
+                : <a href="javascript:void(0)">{item.title}</a>;
             return (
                 <li role="presentation"
                     className={item.isActive ? "active" : ""}
-                    onClick={() => this.clickTab(item)}
+                    onClick={() => this.clickTab(i)}
                     onMouseEnter={() => this.mouseenter(item)}
                     onMouseLeave={() => this.mouseleave(item)}>
-                    <a href="javascript:void(0)">{item.title}</a>
+                    {title}
                     {closeIcon}
                 </li>
             );
