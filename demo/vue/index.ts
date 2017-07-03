@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import "../../dist/vue";
-import * as common from "../../dist/common";
+import { TabContainerData } from "../../dist/vue";
 
 Vue.component("main-page", {
     template: `<div>{{data}}</div>`,
@@ -29,7 +29,7 @@ Vue.component("custom-title", {
     `,
 })
 class App extends Vue {
-    data: common.TabContainerData[] = [
+    data: TabContainerData[] = [
         {
             isActive: true,
             title: "main title",

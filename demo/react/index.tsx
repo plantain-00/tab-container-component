@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { TabContainer } from "../../dist/react";
-import * as common from "../../dist/common";
+import { TabContainer, TabContainerData } from "../../dist/react";
 
 const MainPage: React.StatelessComponent<{ data: number }> = props => <div>{props.data}</div>;
 
@@ -10,7 +9,7 @@ const TabPage: React.StatelessComponent<{ data: number }> = props => <button>{pr
 const CustomTitle: React.StatelessComponent<{ data: { title: string; count: number } }> = props => <a href="javascript:void" style={{ color: "red" }}>{props.data.title}{props.data.count > 0 ? `(${props.data.count})` : ""}</a>;
 
 class Main extends React.Component<{}, {}> {
-    data: common.TabContainerData[] = [
+    data: TabContainerData[] = [
         {
             isActive: true,
             title: "main title",

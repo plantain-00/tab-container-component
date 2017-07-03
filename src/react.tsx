@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as common from "./common";
+export * from "./common";
 
 export class TabContainer extends React.Component<{
     data: common.TabContainerData[];
