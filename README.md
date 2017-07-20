@@ -22,7 +22,7 @@ A vuejs and reactjs tab container component.
 #### link css
 
 ```html
-<link rel="stylesheet" href="./node_modules/tab-container-component/dist/tab-container.min.css" />
+<link rel="stylesheet" href="./node_modules/tab-container-component/tab-container.min.css" />
 ```
 
 #### vuejs component demo
@@ -30,7 +30,7 @@ A vuejs and reactjs tab container component.
 `npm i vue vue-class-component`
 
 ```ts
-import "tab-container-component/dist/vue";
+import "tab-container-component/vue";
 ```
 
 ```html
@@ -43,7 +43,7 @@ the online demo: https://plantain-00.github.io/tab-container-component/demo/vue/
 #### reactjs component demo
 
 ```ts
-import { TabContainer } from "tab-container-component/dist/react";
+import { TabContainer } from "tab-container-component/react";
 ```
 
 ```jsx
@@ -73,4 +73,14 @@ export type TabContainerData = {
     data: any; // the data will be passed to the component as `data` props
     canClose?: boolean;
 };
+```
+
+#### change logs
+
+```ts
+// v2
+import "tab-container-component/vue";
+
+// v1
+import "tab-container-component/dist/vue";
 ```
