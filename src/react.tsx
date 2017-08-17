@@ -10,39 +10,7 @@ export class TabContainer extends React.Component<{
     close?: (index: number) => void;
     switching?: (index: number) => void;
 }, {}> {
-    hoveringItem: common.TabContainerData | null = null;
-
-    clickTab(index: number) {
-        if (this.props.switching) {
-            this.props.switching(index);
-        }
-        const item = this.props.data[index];
-        if (item.isActive) {
-            return;
-        }
-        for (const itemData of this.props.data) {
-            itemData.isActive = false;
-        }
-        item.isActive = true;
-        this.setState({});
-    }
-
-    mouseenter(item: common.TabContainerData) {
-        this.hoveringItem = item;
-        this.setState({ hoveringItem: this.hoveringItem });
-    }
-
-    mouseleave(item: common.TabContainerData) {
-        this.hoveringItem = null;
-        this.setState({ hoveringItem: this.hoveringItem });
-    }
-
-    close(e: React.MouseEvent<HTMLSpanElement>, index: number) {
-        e.stopPropagation();
-        if (this.props.close) {
-            this.props.close(index);
-        }
-    }
+    private hoveringItem: common.TabContainerData | null = null;
 
     render() {
         const titles = this.props.data.map((item, i) => {
@@ -79,5 +47,37 @@ export class TabContainer extends React.Component<{
                 </div>
             </div>
         );
+    }
+
+    private clickTab(index: number) {
+        if (this.props.switching) {
+            this.props.switching(index);
+        }
+        const item = this.props.data[index];
+        if (item.isActive) {
+            return;
+        }
+        for (const itemData of this.props.data) {
+            itemData.isActive = false;
+        }
+        item.isActive = true;
+        this.setState({});
+    }
+
+    private mouseenter(item: common.TabContainerData) {
+        this.hoveringItem = item;
+        this.setState({ hoveringItem: this.hoveringItem });
+    }
+
+    private mouseleave(item: common.TabContainerData) {
+        this.hoveringItem = null;
+        this.setState({ hoveringItem: this.hoveringItem });
+    }
+
+    private close(e: React.MouseEvent<HTMLSpanElement>, index: number) {
+        e.stopPropagation();
+        if (this.props.close) {
+            this.props.close(index);
+        }
     }
 }

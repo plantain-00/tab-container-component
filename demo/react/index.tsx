@@ -9,7 +9,7 @@ const TabPage: React.StatelessComponent<{ data: number }> = props => <button>{pr
 const CustomTitle: React.StatelessComponent<{ data: { title: string; count: number } }> = props => <a href="javascript:void" style={{ color: "red" }}>{props.data.title}{props.data.count > 0 ? `(${props.data.count})` : ""}</a>;
 
 class Main extends React.Component<{}, {}> {
-    data: TabContainerData[] = [
+    private data: TabContainerData[] = [
         {
             isActive: true,
             title: "main title",
@@ -50,17 +50,6 @@ class Main extends React.Component<{}, {}> {
         }, 1000);
     }
 
-    close(index: number) {
-        if (this.data[index].isActive && index >= 1) {
-            this.data[index - 1].isActive = true;
-        }
-        this.data.splice(index, 1);
-        if (this.data.length === 1) {
-            this.data[0].canClose = false;
-        }
-        this.setState({});
-    }
-
     render() {
         return (
             <div>
@@ -70,6 +59,17 @@ class Main extends React.Component<{}, {}> {
                 </TabContainer>
             </div>
         );
+    }
+
+    private close(index: number) {
+        if (this.data[index].isActive && index >= 1) {
+            this.data[index - 1].isActive = true;
+        }
+        this.data.splice(index, 1);
+        if (this.data.length === 1) {
+            this.data[0].canClose = false;
+        }
+        this.setState({});
     }
 }
 
