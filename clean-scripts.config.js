@@ -8,7 +8,8 @@ module.exports = {
       js: [
         `file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify --base src`,
         `tsc -p src`,
-        `tsc -p demo`
+        `tsc -p demo`,
+        `webpack --display-modules --config demo/webpack.config.js`
       ],
       css: [
         `lessc src/tab-container.less > dist/tab-container.css`,
@@ -17,7 +18,6 @@ module.exports = {
       ],
       clean: `rimraf demo/**/index.bundle-*.js demo/*.bundle-*.css`
     },
-    `webpack --display-modules --config demo/webpack.config.js`,
     `rev-static --config demo/rev-static.config.js`
   ],
   lint: {
@@ -49,5 +49,12 @@ module.exports = {
     less: `stylelint --fix "src/**/*.less"`
   },
   release: `clean-release`,
-  watch: `watch-then-execute "src/**/*.ts" "src/**/*.tsx" "spec/**/*.ts" "demo/**/*.ts" "demo/**/*.tsx" "src/**/*.template.html" --exclude "src/*-variables.ts" --script "npm run build"`
+  watch: {
+    vue: `file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify --base src --watch`,
+    src: `tsc -p src --watch`,
+    demo: `tsc -p demo --watch`,
+    webpack: `webpack --config demo/webpack.config.js --watch`,
+    less: `watch-then-execute "src/tab-container.less" --script "clean-scripts build[2].css"`,
+    rev: `rev-static --config demo/rev-static.config.js --watch`
+  }
 }
