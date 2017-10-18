@@ -10,20 +10,32 @@ import * as puppeteer from "puppeteer";
         await page.waitFor(100);
         await page.screenshot({ path: `screenshots/${type}-initial.png`, fullPage: true });
 
-        const tabs = await page.$$(".tab-title>li");
-        for (let i = 1; i < tabs.length; i++) {
-            await tabs[i].click();
-            await page.waitFor(100);
-            await page.screenshot({ path: `screenshots/${type}-tab-switch-${i}.png`, fullPage: true });
-        }
+        await page.click(".tab-1");
+        await page.waitFor(100);
+        await page.screenshot({ path: `screenshots/${type}-tab-switch-1.png`, fullPage: true });
 
-        for (let i = 3; i > 0; i--) {
-            await tabs[i].hover();
-            const closeIcon = await page.$(".tab-title>li>span");
-            closeIcon.click();
-            await page.waitFor(100);
-            await page.screenshot({ path: `screenshots/${type}-tab-close-${i}.png`, fullPage: true });
-        }
+        await page.click(".tab-2");
+        await page.waitFor(100);
+        await page.screenshot({ path: `screenshots/${type}-tab-switch-2.png`, fullPage: true });
+
+        await page.click(".tab-3");
+        await page.waitFor(100);
+        await page.screenshot({ path: `screenshots/${type}-tab-switch-3.png`, fullPage: true });
+
+        await page.hover(".tab-3");
+        await page.click(".tab-close");
+        await page.waitFor(100);
+        await page.screenshot({ path: `screenshots/${type}-tab-close-3.png`, fullPage: true });
+
+        await page.hover(".tab-2");
+        await page.click(".tab-close");
+        await page.waitFor(100);
+        await page.screenshot({ path: `screenshots/${type}-tab-close-2.png`, fullPage: true });
+
+        await page.hover(".tab-1");
+        await page.click(".tab-close");
+        await page.waitFor(100);
+        await page.screenshot({ path: `screenshots/${type}-tab-close-1.png`, fullPage: true });
     }
 
     browser.close();

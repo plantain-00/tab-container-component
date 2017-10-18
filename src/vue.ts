@@ -12,6 +12,7 @@ class TabContainer extends Vue {
     data: common.TabContainerData[];
 
     hoveringItem: common.TabContainerData | null = null;
+    getTabClass = common.getTabClass;
 
     clickTab(index: number) {
         this.$emit("switching", index);

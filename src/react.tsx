@@ -11,16 +11,17 @@ export class TabContainer extends React.Component<{
     switching?: (index: number) => void;
 }, {}> {
     private hoveringItem: common.TabContainerData | null = null;
+    private getTabClass = common.getTabClass;
 
     render() {
         const titles = this.props.data.map((item, i) => {
-            const closeIcon = item.canClose && this.hoveringItem === item ? <span onClick={e => this.close(e, i)}>&times;</span> : null;
+            const closeIcon = item.canClose && this.hoveringItem === item ? <span className="tab-close" onClick={e => this.close(e, i)}>&times;</span> : null;
             const title = item.titleComponent
                 ? React.createElement(item.titleComponent as React.ComponentClass<{ data: number }>, { data: item.titleData })
                 : <a href="javascript:void(0)">{item.title}</a>;
             return (
                 <li role="presentation"
-                    className={item.isActive ? "active" : ""}
+                    className={this.getTabClass(item, i)}
                     onClick={() => this.clickTab(i)}
                     onMouseEnter={() => this.mouseenter(item)}
                     onMouseLeave={() => this.mouseleave(item)}>
