@@ -4,16 +4,22 @@ const tsFiles = `"src/**/*.ts" "src/**/*.tsx" "spec/**/*.ts" "demo/**/*.ts" "dem
 const lessFiles = `"src/**/*.less"`
 const jsFiles = `"*.config.js" "demo/*.config.js" "spec/**/*.config.js"`
 
+const templateCommand = `file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify --base src`
+const tscSrcCommand = `tsc -p src`
+const tscDemoCommand = `tsc -p demo`
+const webpackCommand = `webpack --display-modules --config demo/webpack.config.js`
+const revStaticCommand = `rev-static --config demo/rev-static.config.js`
+
 module.exports = {
   build: [
     `rimraf dist`,
     `mkdirp dist`,
     {
       js: [
-        `file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify --base src`,
-        `tsc -p src`,
-        `tsc -p demo`,
-        `webpack --display-modules --config demo/webpack.config.js`
+        templateCommand,
+        tscSrcCommand,
+        tscDemoCommand,
+        webpackCommand
       ],
       css: [
         `lessc src/tab-container.less > src/tab-container.css`,
@@ -23,7 +29,7 @@ module.exports = {
       ],
       clean: `rimraf demo/**/index.bundle-*.js demo/*.bundle-*.css`
     },
-    `rev-static --config demo/rev-static.config.js`
+    revStaticCommand
   ],
   lint: {
     ts: `tslint ${tsFiles}`,
@@ -49,12 +55,12 @@ module.exports = {
   },
   release: `clean-release`,
   watch: {
-    vue: `file2variable-cli src/vue.template.html -o src/vue-variables.ts --html-minify --base src --watch`,
-    src: `tsc -p src --watch`,
-    demo: `tsc -p demo --watch`,
-    webpack: `webpack --config demo/webpack.config.js --watch`,
-    less: `watch-then-execute "src/tab-container.less" --script "clean-scripts build[2].css"`,
-    rev: `rev-static --config demo/rev-static.config.js --watch`
+    vue: `${templateCommand} --watch`,
+    src: `${tscSrcCommand} --watch`,
+    demo: `${tscDemoCommand} --watch`,
+    webpack: `${webpackCommand} --watch`,
+    less: `watch-then-execute ${lessFiles} --script "clean-scripts build[2].css"`,
+    rev: `${revStaticCommand} --watch`
   },
   screenshot: [
     new Service(`http-server -p 8000`),
