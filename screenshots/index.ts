@@ -8,34 +8,34 @@ import * as puppeteer from "puppeteer";
     for (const type of ["vue", "react"]) {
         await page.goto(`http://localhost:8000/demo/${type}`);
         await page.waitFor(100);
-        await page.screenshot({ path: `screenshots/${type}-initial.png`, fullPage: true });
+        await page.screenshot({ path: `screenshots/${type}-initial.png` });
 
         await page.click(".tab-1");
         await page.waitFor(100);
-        await page.screenshot({ path: `screenshots/${type}-tab-switch-1.png`, fullPage: true });
+        await page.screenshot({ path: `screenshots/${type}-tab-switch-1.png` });
 
         await page.click(".tab-2");
         await page.waitFor(100);
-        await page.screenshot({ path: `screenshots/${type}-tab-switch-2.png`, fullPage: true });
+        await page.screenshot({ path: `screenshots/${type}-tab-switch-2.png` });
 
         await page.click(".tab-3");
         await page.waitFor(100);
-        await page.screenshot({ path: `screenshots/${type}-tab-switch-3.png`, fullPage: true });
+        await page.screenshot({ path: `screenshots/${type}-tab-switch-3.png` });
 
         await page.hover(".tab-3");
         await page.click(".tab-close");
         await page.waitFor(100);
-        await page.screenshot({ path: `screenshots/${type}-tab-close-3.png`, fullPage: true });
+        await page.screenshot({ path: `screenshots/${type}-tab-close-3.png` });
 
         await page.hover(".tab-2");
         await page.click(".tab-close");
         await page.waitFor(100);
-        await page.screenshot({ path: `screenshots/${type}-tab-close-2.png`, fullPage: true });
+        await page.screenshot({ path: `screenshots/${type}-tab-close-2.png` });
 
         await page.hover(".tab-1");
         await page.click(".tab-close");
         await page.waitFor(100);
-        await page.screenshot({ path: `screenshots/${type}-tab-close-1.png`, fullPage: true });
+        await page.screenshot({ path: `screenshots/${type}-tab-close-1.png` });
     }
 
     browser.close();
