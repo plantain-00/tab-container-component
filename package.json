@@ -1,8 +1,7 @@
 {
   "name": "tab-container-component",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A vuejs and reactjs tab container component.",
-  "main": "index.js",
   "scripts": {
     "build": "clean-scripts build",
     "lint": "clean-scripts lint",
