@@ -21,6 +21,7 @@ export class TabContainer extends React.Component<{
                 : <a href="javascript:void(0)">{item.title}</a>;
             return (
                 <li role="presentation"
+                    key={i}
                     className={this.getTabClass(item, i)}
                     onClick={() => this.clickTab(i)}
                     onMouseEnter={() => this.mouseenter(item)}
@@ -33,7 +34,7 @@ export class TabContainer extends React.Component<{
         const contents = this.props.data.map((item, i) => {
             const content = React.createElement(item.component as React.ComponentClass<{ data: number }>, { data: item.data });
             return (
-                <div role="tabpanel" className={item.isActive ? "active" : "inactive"}>
+                <div role="tabpanel" className={item.isActive ? "active" : "inactive"} key={i}>
                     {content}
                 </div>
             );
