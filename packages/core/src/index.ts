@@ -1,3 +1,6 @@
+/**
+ * @public
+ */
 export type TabContainerData = {
     isActive: boolean;
     title?: string;
@@ -10,6 +13,9 @@ export type TabContainerData = {
     canClose?: boolean;
 };
 
+/**
+ * @public
+ */
 export function getTabClass(item: TabContainerData, index: number) {
     const result = [`tab-${index}`];
     if (item.isActive) {
