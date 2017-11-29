@@ -16,22 +16,18 @@ A vuejs and reactjs tab container component.
 + tab can be closed
 + title can be custom component
 
-#### install
-
-`npm i tab-container-component`
-
 #### link css
 
 ```html
-<link rel="stylesheet" href="./node_modules/tab-container-component/tab-container.min.css" />
+<link rel="stylesheet" href="./node_modules/tab-container-component/dist/tab-container.min.css" />
 ```
 
-#### vuejs component demo
+#### vuejs component
 
-`npm i vue vue-class-component`
+`npm i tab-container-vue-component`
 
 ```ts
-import "tab-container-component/vue";
+import "tab-container-vue-component";
 ```
 
 ```html
@@ -39,12 +35,14 @@ import "tab-container-component/vue";
 </tab-container>
 ```
 
-the online demo: https://plantain-00.github.io/tab-container-component/demo/vue/index.html
+the online demo: https://plantain-00.github.io/tab-container-component/packages/vue/demo
 
-#### reactjs component demo
+#### reactjs component
+
+`npm i tab-container-react-component`
 
 ```ts
-import { TabContainer } from "tab-container-component/react";
+import { TabContainer } from "tab-container-react-component";
 ```
 
 ```jsx
@@ -52,7 +50,7 @@ import { TabContainer } from "tab-container-component/react";
 </TabContainer>
 ```
 
-the online demo: https://plantain-00.github.io/tab-container-component/demo/react/index.html
+the online demo: https://plantain-00.github.io/tab-container-component/packages/react/demo
 
 #### properties and events of the component
 
@@ -77,6 +75,33 @@ export type TabContainerData = {
 ```
 
 #### change logs
+
+```bash
+# v2
+npm i tab-container-component
+
+# v3
+npm i tab-container-vue-component
+npm i tab-container-react-component
+```
+
+```ts
+// v2
+import "tab-container-component/vue";
+import { TabContainer } from "tab-container-component/react";
+
+// v3
+import "tab-container-vue-component";
+import { TabContainer } from "tab-container-react-component";
+```
+
+```html
+// v2
+<link rel="stylesheet" href="./node_modules/tab-container-component/tab-container.min.css" />
+
+// v3
+<link rel="stylesheet" href="./node_modules/tab-container-component/dist/tab-container.min.css" />
+```
 
 ```ts
 // v2

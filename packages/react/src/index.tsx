@@ -1,6 +1,6 @@
 import * as React from "react";
-import * as common from "./common";
-export * from "./common";
+import * as common from "tab-container-component";
+export * from "tab-container-component";
 
 /**
  * @public

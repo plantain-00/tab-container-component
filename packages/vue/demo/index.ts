@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 // tslint:disable:no-duplicate-imports
-import "../../dist/vue";
-import { TabContainerData } from "../../dist/vue";
+import "../dist/";
+import { TabContainerData } from "../dist/";
 
 Vue.component("main-page", {
     template: `<div>{{data}}</div>`,

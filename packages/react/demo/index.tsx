@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { TabContainer, TabContainerData } from "../../dist/react";
+import { TabContainer, TabContainerData } from "../dist/";
 
 const MainPage: React.StatelessComponent<{ data: number }> = props => <div>{props.data}</div>;
 
