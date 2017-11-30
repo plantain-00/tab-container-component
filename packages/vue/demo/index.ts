@@ -22,7 +22,7 @@ Vue.component("custom-title", {
 @Component({
     template: `
     <div>
-        <a href="https://github.com/plantain-00/tab-container-component/tree/master/demo/vue/index.ts" target="_blank">the source code of the demo</a>
+        <a href="https://github.com/plantain-00/tab-container-component/tree/master/packages/vue/demo" target="_blank">the source code of the demo</a>
         <br/>
         <tab-container :data="data" @close="close($event)">
         </tab-container>
