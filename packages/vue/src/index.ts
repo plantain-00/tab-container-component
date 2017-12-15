@@ -5,10 +5,10 @@ export * from "tab-container-component";
 import { indexTemplateHtml } from "./variables";
 
 @Component({
-    template: indexTemplateHtml,
+    render: indexTemplateHtml,
     props: ["data"],
 })
-class TabContainer extends Vue {
+export class TabContainer extends Vue {
     data: common.TabContainerData[];
 
     hoveringItem: common.TabContainerData | null = null;
