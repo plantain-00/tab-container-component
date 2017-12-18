@@ -5,7 +5,7 @@ const tsFiles = `"packages/@(core|vue|react|angular)/@(src|demo)/**/*.@(ts|tsx)"
 const lessFiles = `"packages/core/src/**/*.less"`
 const jsFiles = `"*.config.js" "spec/**/*.config.js"`
 
-const vueTemplateCommand = `file2variable-cli packages/vue/src/*.template.html -o packages/vue/src/variables.ts --html-minify --base packages/vue/src/ --vue --vue-type-name "TabContainer" --vue-type-path "./index"`
+const vueTemplateCommand = `file2variable-cli --config packages/vue/src/file2variable.config.js`
 const tscSrcCommand = [
   `tsc -p packages/core/src`,
   `tsc -p packages/vue/src`,

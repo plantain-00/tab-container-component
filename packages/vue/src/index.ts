@@ -2,10 +2,11 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import * as common from "tab-container-component";
 export * from "tab-container-component";
-import { indexTemplateHtml } from "./variables";
+import { indexTemplateHtml, indexTemplateHtmlStatic } from "./variables";
 
 @Component({
     render: indexTemplateHtml,
+    staticRenderFns: indexTemplateHtmlStatic,
     props: ["data"],
 })
 export class TabContainer extends Vue {
