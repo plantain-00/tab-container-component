@@ -1,6 +1,6 @@
 {
   "name": "tab-container-component",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A vuejs and reactjs tab container component.",
@@ -14,7 +14,13 @@
     "url": "https://github.com/plantain-00/tab-container-component/issues"
   },
   "homepage": "https://github.com/plantain-00/tab-container-component#readme",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
+    "tslib": "1"
+  },
+  "peerDependencies": {
     "tslib": "1"
   }
 }

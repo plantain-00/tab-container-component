@@ -1,6 +1,6 @@
 {
   "name": "tab-container-vue-component",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A vuejs tab container component.",
@@ -14,8 +14,16 @@
     "url": "https://github.com/plantain-00/tab-container-component/issues"
   },
   "homepage": "https://github.com/plantain-00/tab-container-component#readme",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "tab-container-component": "^3.1.0",
+    "tab-container-component": "^3.1.1",
+    "vue": "2",
+    "vue-class-component": "6"
+  },
+  "peerDependencies": {
+    "tab-container-component": "^3.1.1",
     "vue": "2",
     "vue-class-component": "6"
   }
