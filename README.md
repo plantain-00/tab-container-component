@@ -1,3 +1,5 @@
+# tab-container-component
+
 [![Dependency Status](https://david-dm.org/plantain-00/tab-container-component.svg)](https://david-dm.org/plantain-00/tab-container-component)
 [![devDependency Status](https://david-dm.org/plantain-00/tab-container-component/dev-status.svg)](https://david-dm.org/plantain-00/tab-container-component#info=devDependencies)
 [![Build Status: Linux](https://travis-ci.org/plantain-00/tab-container-component.svg?branch=master)](https://travis-ci.org/plantain-00/tab-container-component)
@@ -5,10 +7,9 @@
 [![npm version](https://badge.fury.io/js/tab-container-component.svg)](https://badge.fury.io/js/tab-container-component)
 [![Downloads](https://img.shields.io/npm/dm/tab-container-component.svg)](https://www.npmjs.com/package/tab-container-component)
 
-# tab-container-component
 A vuejs and reactjs tab container component.
 
-#### features
+## features
 
 + vuejs component
 + reactjs component
@@ -16,13 +17,13 @@ A vuejs and reactjs tab container component.
 + tab can be closed
 + title can be custom component
 
-#### link css
+## link css
 
 ```html
 <link rel="stylesheet" href="./node_modules/tab-container-component/dist/tab-container.min.css" />
 ```
 
-#### vuejs component
+## vuejs component
 
 `npm i tab-container-vue-component`
 
@@ -35,9 +36,9 @@ import "tab-container-vue-component";
 </tab-container>
 ```
 
-the online demo: https://plantain-00.github.io/tab-container-component/packages/vue/demo
+the online demo: <https://plantain-00.github.io/tab-container-component/packages/vue/demo>
 
-#### reactjs component
+## reactjs component
 
 `npm i tab-container-react-component`
 
@@ -50,9 +51,9 @@ import { TabContainer } from "tab-container-react-component";
 </TabContainer>
 ```
 
-the online demo: https://plantain-00.github.io/tab-container-component/packages/react/demo
+the online demo: <https://plantain-00.github.io/tab-container-component/packages/react/demo>
 
-#### properties and events of the component
+## properties and events of the component
 
 name | type | description
 --- | --- | ---
@@ -60,7 +61,7 @@ data | [TabContainerData](#tab-container-data-structure)[] | the data of the tab
 close | (index: number)=>void | triggered when a tab is going to close
 switching | (index: number)=>void | triggered when a tab is going to switch
 
-#### tab-container data structure
+## tab-container data structure
 
 ```ts
 export type TabContainerData = {
@@ -74,7 +75,7 @@ export type TabContainerData = {
 };
 ```
 
-#### change logs
+## change logs
 
 ```bash
 # v2
