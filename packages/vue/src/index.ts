@@ -1,44 +1,44 @@
-import Vue from "vue";
-import Component from "vue-class-component";
-import * as common from "tab-container-component";
-export * from "tab-container-component";
-import { indexTemplateHtml, indexTemplateHtmlStatic } from "./variables";
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import * as common from 'tab-container-component'
+export * from 'tab-container-component'
+import { indexTemplateHtml, indexTemplateHtmlStatic } from './variables'
 
 @Component({
-    render: indexTemplateHtml,
-    staticRenderFns: indexTemplateHtmlStatic,
-    props: ["data"],
+  render: indexTemplateHtml,
+  staticRenderFns: indexTemplateHtmlStatic,
+  props: ['data']
 })
 export class TabContainer extends Vue {
-    data: common.TabContainerData[];
+  data: common.TabContainerData[]
 
-    hoveringItem: common.TabContainerData | null = null;
-    getTabClass = common.getTabClass;
+  hoveringItem: common.TabContainerData | null = null
+  getTabClass = common.getTabClass
 
-    clickTab(index: number) {
-        this.$emit("switching", index);
-        const item = this.data[index];
-        if (item.isActive) {
-            return;
-        }
-        for (const itemData of this.data) {
-            itemData.isActive = false;
-        }
-        item.isActive = true;
+  clickTab (index: number) {
+    this.$emit('switching', index)
+    const item = this.data[index]
+    if (item.isActive) {
+      return
     }
-
-    mouseenter(item: common.TabContainerData) {
-        this.hoveringItem = item;
+    for (const itemData of this.data) {
+      itemData.isActive = false
     }
+    item.isActive = true
+  }
 
-    mouseleave(item: common.TabContainerData) {
-        this.hoveringItem = null;
-    }
+  mouseenter (item: common.TabContainerData) {
+    this.hoveringItem = item
+  }
 
-    close(e: MouseEvent, index: number) {
-        e.stopPropagation();
-        this.$emit("close", index);
-    }
+  mouseleave (item: common.TabContainerData) {
+    this.hoveringItem = null
+  }
+
+  close (e: MouseEvent, index: number) {
+    e.stopPropagation()
+    this.$emit('close', index)
+  }
 }
 
-Vue.component("tab-container", TabContainer);
+Vue.component('tab-container', TabContainer)
