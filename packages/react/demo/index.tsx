@@ -52,12 +52,12 @@ class Main extends React.Component<{}, {}> {
 
   render () {
     return (
-            <div>
-                <a href='https://github.com/plantain-00/tab-container-component/tree/master/packages/react/demo' target='_blank'>the source code of the demo</a>
-                <br />
-                <TabContainer data={this.data} close={e => this.close(e)}>
-                </TabContainer>
-            </div>
+      <div>
+        <a href='https://github.com/plantain-00/tab-container-component/tree/master/packages/react/demo' target='_blank'>the source code of the demo</a>
+        <br />
+        <TabContainer data={this.data} close={e => this.close(e)}>
+        </TabContainer>
+      </div>
     )
   }
 
