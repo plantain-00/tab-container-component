@@ -10,7 +10,7 @@ import { indexTemplateHtml, indexTemplateHtmlStatic } from './variables'
   props: ['data']
 })
 export class TabContainer extends Vue {
-  data: common.TabContainerData[]
+  data!: common.TabContainerData[]
 
   hoveringItem: common.TabContainerData | null = null
   getTabClass = common.getTabClass
