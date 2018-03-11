@@ -31,6 +31,14 @@ A vuejs and reactjs tab container component.
 import "tab-container-vue-component";
 ```
 
+or
+
+```html
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<script src="./node_modules/vue-class-component/dist/vue-class-component.min.js"></script>
+<script src="./node_modules/tab-container-vue-component/dist/tab-container-vue-component.min.js"></script>
+```
+
 ```html
 <tab-container :data="data">
 </tab-container>
@@ -44,6 +52,14 @@ the online demo: <https://plantain-00.github.io/tab-container-component/packages
 
 ```ts
 import { TabContainer } from "tab-container-react-component";
+```
+
+or
+
+```html
+<script src="./node_modules/react/umd/react.production.min.js"></script>
+<script src="./node_modules/react-dom/umd/react-dom.production.min.js"></script>
+<script src="./node_modules/tab-container-react-component/dist/tab-container-react-component.min.js"></script>
 ```
 
 ```jsx
