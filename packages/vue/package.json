@@ -2,6 +2,9 @@
   "name": "tab-container-vue-component",
   "version": "3.2.0",
   "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/tab-container-vue-component.min.js",
+  "jsdelivr": "dist/tab-container-vue-component.min.js",
   "types": "dist/index.d.ts",
   "description": "A vuejs tab container component.",
   "repository": {
