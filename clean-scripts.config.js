@@ -1,4 +1,4 @@
-const { Service, checkGitStatus, executeScriptAsync } = require('clean-scripts')
+const { Service, executeScriptAsync } = require('clean-scripts')
 const { watch } = require('watch-then-execute')
 
 const tsFiles = `"packages/@(core|vue|react|angular)/@(src|demo)/**/*.@(ts|tsx)" "spec/**/*.ts" "screenshots/**/*.ts"`
@@ -25,6 +25,8 @@ const cssCommand = [
   `cleancss packages/core/dist/tab-container.min.css ./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css -o packages/core/demo/index.bundle.css`
 ]
 
+const isDev = process.env.NODE_ENV === 'development'
+
 module.exports = {
   build: [
     {
@@ -34,13 +36,13 @@ module.exports = {
           vue: [
             vueTemplateCommand,
             tscVueSrcCommand,
-            `rollup --config packages/vue/src/rollup.config.js`,
+            isDev ? undefined : `rollup --config packages/vue/src/rollup.config.js`,
             tscVueDemoCommand,
             webpackVueCommand
           ],
           react: [
             tscReactSrcCommand,
-            `rollup --config packages/react/src/rollup.config.js`,
+            isDev ? undefined : `rollup --config packages/react/src/rollup.config.js`,
             tscReactDemoCommand,
             webpackReactCommand
           ]
@@ -61,8 +63,7 @@ module.exports = {
   },
   test: [
     'tsc -p spec',
-    'karma start spec/karma.config.js',
-    () => checkGitStatus()
+    'karma start spec/karma.config.js'
   ],
   fix: {
     ts: `tslint --fix ${tsFiles}`,
