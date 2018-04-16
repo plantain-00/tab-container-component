@@ -1,0 +1,26 @@
+{
+  "name": "tab-container-component",
+  "version": "3.2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "A vuejs and reactjs tab container component.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plantain-00/tab-container-component.git"
+  },
+  "author": "York Yao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plantain-00/tab-container-component/issues"
+  },
+  "homepage": "https://github.com/plantain-00/tab-container-component#readme",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "tslib": "1"
+  },
+  "peerDependencies": {
+    "tslib": "1"
+  }
+}

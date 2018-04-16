@@ -1,0 +1,37 @@
+{
+  "name": "tab-container-react-component",
+  "version": "3.2.1",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/tab-container-react-component.min.js",
+  "jsdelivr": "dist/tab-container-react-component.min.js",
+  "types": "dist/index.d.ts",
+  "description": "A reactjs tab container component.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plantain-00/tab-container-component.git"
+  },
+  "author": "York Yao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plantain-00/tab-container-component/issues"
+  },
+  "homepage": "https://github.com/plantain-00/tab-container-component#readme",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "react": "16",
+    "react-dom": "16",
+    "tab-container-component": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "16.3.10",
+    "@types/react-dom": "16.0.5"
+  },
+  "peerDependencies": {
+    "react": "16",
+    "react-dom": "16",
+    "tab-container-component": "^3.2.0"
+  }
+}
