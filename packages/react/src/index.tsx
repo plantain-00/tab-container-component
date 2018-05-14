@@ -13,7 +13,7 @@ export class TabContainer extends React.Component<{
   private hoveringItem: common.TabContainerData | null = null
   private getTabClass = common.getTabClass
 
-  render () {
+  render() {
     const titles = this.props.data.map((item, i) => {
       const closeIcon = item.canClose && this.hoveringItem === item ? <span className='tab-close' onClick={e => this.close(e, i)}>&times;</span> : null
       const title = item.titleComponent
@@ -51,7 +51,7 @@ export class TabContainer extends React.Component<{
     )
   }
 
-  private clickTab (index: number) {
+  private clickTab(index: number) {
     if (this.props.switching) {
       this.props.switching(index)
     }
@@ -66,17 +66,17 @@ export class TabContainer extends React.Component<{
     this.setState({})
   }
 
-  private mouseenter (item: common.TabContainerData) {
+  private mouseenter(item: common.TabContainerData) {
     this.hoveringItem = item
     this.setState({ hoveringItem: this.hoveringItem })
   }
 
-  private mouseleave (item: common.TabContainerData) {
+  private mouseleave(item: common.TabContainerData) {
     this.hoveringItem = null
     this.setState({ hoveringItem: this.hoveringItem })
   }
 
-  private close (e: React.MouseEvent<HTMLSpanElement>, index: number) {
+  private close(e: React.MouseEvent<HTMLSpanElement>, index: number) {
     e.stopPropagation()
     if (this.props.close) {
       this.props.close(index)

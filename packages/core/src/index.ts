@@ -14,7 +14,7 @@ export type TabContainerData = {
 /**
  * @public
  */
-export function getTabClass (item: TabContainerData, index: number) {
+export function getTabClass(item: TabContainerData, index: number) {
   const result = [`tab-${index}`]
   if (item.isActive) {
     result.push('active')

@@ -15,7 +15,7 @@ export class TabContainer extends Vue {
   hoveringItem: common.TabContainerData | null = null
   getTabClass = common.getTabClass
 
-  clickTab (index: number) {
+  clickTab(index: number) {
     this.$emit('switching', index)
     const item = this.data[index]
     if (item.isActive) {
@@ -27,15 +27,15 @@ export class TabContainer extends Vue {
     item.isActive = true
   }
 
-  mouseenter (item: common.TabContainerData) {
+  mouseenter(item: common.TabContainerData) {
     this.hoveringItem = item
   }
 
-  mouseleave (item: common.TabContainerData) {
+  mouseleave(item: common.TabContainerData) {
     this.hoveringItem = null
   }
 
-  close (e: MouseEvent, index: number) {
+  close(e: MouseEvent, index: number) {
     e.stopPropagation()
     this.$emit('close', index)
   }
