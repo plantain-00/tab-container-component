@@ -41,7 +41,7 @@ class Main extends React.Component<{}, {}> {
     }
   ]
 
-  componentWillMount () {
+  componentWillMount() {
     setInterval(() => {
       if (this.data.length >= 4 && this.data[3].titleComponent) {
         this.data[3].titleData.count--
@@ -50,7 +50,7 @@ class Main extends React.Component<{}, {}> {
     }, 1000)
   }
 
-  render () {
+  render() {
     return (
       <div>
         <a href='https://github.com/plantain-00/tab-container-component/tree/master/packages/react/demo' target='_blank'>the source code of the demo</a>
@@ -61,7 +61,7 @@ class Main extends React.Component<{}, {}> {
     )
   }
 
-  private close (index: number) {
+  private close(index: number) {
     if (this.data[index].isActive && index >= 1) {
       this.data[index - 1].isActive = true
     }

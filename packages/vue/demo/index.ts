@@ -62,7 +62,7 @@ class App extends Vue {
     }
   ]
 
-  beforeMount () {
+  beforeMount() {
     setInterval(() => {
       if (this.data.length >= 4 && this.data[3].titleComponent) {
         this.data[3].titleData.count--
@@ -70,7 +70,7 @@ class App extends Vue {
     }, 1000)
   }
 
-  close (index: number) {
+  close(index: number) {
     if (this.data[index].isActive && index >= 1) {
       this.data[index - 1].isActive = true
     }
