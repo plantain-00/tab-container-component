@@ -25,6 +25,8 @@ A vuejs and reactjs tab container component.
 
 ## vuejs component
 
+[![gzip size](https://img.badgesize.io/https://unpkg.com/tab-container-vue-component?compression=gzip)](https://unpkg.com/tab-container-vue-component)
+
 `npm i tab-container-vue-component`
 
 ```ts
@@ -47,6 +49,8 @@ or
 the online demo: <https://plantain-00.github.io/tab-container-component/packages/vue/demo>
 
 ## reactjs component
+
+[![gzip size](https://img.badgesize.io/https://unpkg.com/tab-container-react-component?compression=gzip)](https://unpkg.com/tab-container-react-component)
 
 `npm i tab-container-react-component`
 
