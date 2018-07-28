@@ -1,6 +1,6 @@
 {
   "name": "tab-container-vue-component",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "unpkg": "dist/tab-container-vue-component.min.js",
@@ -21,7 +21,7 @@
     "dist"
   ],
   "dependencies": {
-    "tab-container-component": "^3.2.0",
+    "tab-container-component": "^3.3.0",
     "vue": "2",
     "vue-class-component": "6"
   },
