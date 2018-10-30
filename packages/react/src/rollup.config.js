@@ -6,7 +6,7 @@ export default {
   input: 'packages/react/dist/index.js',
   name: 'TabContainer',
   plugins: [
-    resolve(),
+    resolve({ browser: true }),
     uglify(),
     commonjs()
   ],
