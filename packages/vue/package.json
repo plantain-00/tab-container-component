@@ -24,10 +24,5 @@
     "tab-container-component": "^3.3.0",
     "vue": "2",
     "vue-class-component": "6"
-  },
-  "peerDependencies": {
-    "tab-container-component": "^3.2.0",
-    "vue": "2",
-    "vue-class-component": "6"
   }
 }
