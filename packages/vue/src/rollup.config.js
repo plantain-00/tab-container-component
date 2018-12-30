@@ -4,13 +4,13 @@ import commonjs from 'rollup-plugin-commonjs'
 
 export default {
   input: 'packages/vue/dist/index.js',
-  name: 'TabContainer',
   plugins: [
     resolve({ browser: true }),
     uglify(),
     commonjs()
   ],
   output: {
+    name: 'TabContainer',
     file: 'packages/vue/dist/tab-container-vue-component.min.js',
     format: 'umd'
   },
