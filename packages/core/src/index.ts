@@ -1,7 +1,7 @@
 /**
  * @public
  */
-export type TabContainerData = {
+export interface TabContainerData {
   isActive: boolean;
   title?: string;
   titleComponent?: string | Function;
