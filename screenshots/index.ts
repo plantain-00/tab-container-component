@@ -28,7 +28,6 @@ import puppeteer from 'puppeteer'
     await page.screenshot({ path: `screenshots/${type}-tab-switch-3.png` })
 
     await page.hover('.tab-3')
-    // tslint:disable-next-line:no-duplicate-string
     await page.click('.tab-close')
     await page.waitFor(100)
     await page.screenshot({ path: `screenshots/${type}-tab-close-3.png` })
@@ -44,5 +43,5 @@ import puppeteer from 'puppeteer'
     await page.screenshot({ path: `screenshots/${type}-tab-close-1.png` })
   }
 
-  browser.close()
+  await browser.close()
 })()
