@@ -1,21 +1,17 @@
-const { Service, executeScriptAsync } = require('clean-scripts')
-const { watch } = require('watch-then-execute')
+import { Service, executeScriptAsync } from 'clean-scripts'
+import { watch } from 'watch-then-execute'
 
-const tsFiles = `"packages/@(core|vue|react|angular)/@(src|demo)/**/*.@(ts|tsx)" "spec/**/*.ts" "screenshots/**/*.ts"`
+const tsFiles = `"packages/@(core|vue|react|angular)/@(src|demo)/**/*.@(ts|tsx)"`
 const lessFiles = `"packages/core/src/**/*.less"`
-const jsFiles = `"*.config.js" "spec/**/*.config.js"`
 
-const vueTemplateCommand = `file2variable-cli --config packages/vue/src/file2variable.config.js`
+const vueTemplateCommand = `file2variable-cli --config packages/vue/src/file2variable.config.ts`
 
 const tscCoreSrcCommand = `tsc -p packages/core/src`
 const tscVueSrcCommand = `tsc -p packages/vue/src`
 const tscReactSrcCommand = `tsc -p packages/react/src`
 
-const tscVueDemoCommand = `tsc -p packages/vue/demo`
-const tscReactDemoCommand = `tsc -p packages/react/demo`
-
-const webpackVueCommand = `webpack --config packages/vue/demo/webpack.config.js`
-const webpackReactCommand = `webpack --config packages/react/demo/webpack.config.js`
+const webpackVueCommand = `webpack --config packages/vue/demo/webpack.config.ts`
+const webpackReactCommand = `webpack --config packages/react/demo/webpack.config.ts`
 
 const revStaticCommand = `rev-static`
 const cssCommand = [
@@ -27,7 +23,7 @@ const cssCommand = [
 
 const isDev = process.env.NODE_ENV === 'development'
 
-module.exports = {
+export default {
   build: [
     {
       js: [
@@ -37,13 +33,11 @@ module.exports = {
             vueTemplateCommand,
             tscVueSrcCommand,
             isDev ? undefined : `rollup --config packages/vue/src/rollup.config.js`,
-            tscVueDemoCommand,
             webpackVueCommand
           ],
           react: [
             tscReactSrcCommand,
             isDev ? undefined : `rollup --config packages/react/src/rollup.config.js`,
-            tscReactDemoCommand,
             webpackReactCommand
           ]
         }
@@ -54,19 +48,19 @@ module.exports = {
     revStaticCommand
   ],
   lint: {
-    ts: `eslint --ext .js,.ts ${tsFiles} ${jsFiles}`,
+    ts: `eslint --ext .js,.ts ${tsFiles}`,
     less: `stylelint ${lessFiles}`,
     export: `no-unused-export ${tsFiles} ${lessFiles} --exclude "src/compiled/**/*"`,
-    commit: `commitlint --from=HEAD~1`,
     markdown: `markdownlint README.md`,
-    typeCoverage: 'lerna exec -- type-coverage -p src --strict'
+    typeCoverage: {
+      core: 'cd packages/core && type-coverage -p src --strict',
+      vue: 'cd packages/vue && type-coverage -p src --strict --ignore-files "src/variables.ts"',
+      react: 'cd packages/react && type-coverage -p src --strict'
+    }
   },
-  test: [
-    'tsc -p spec',
-    'karma start spec/karma.config.js'
-  ],
+  test: [],
   fix: {
-    ts: `eslint --ext .js,.ts ${tsFiles} ${jsFiles} --fix`,
+    ts: `eslint --ext .js,.ts ${tsFiles} --fix`,
     less: `stylelint --fix ${lessFiles}`
   },
   watch: {
@@ -74,16 +68,9 @@ module.exports = {
     tscCoreSrcCommand: `${tscCoreSrcCommand} --watch`,
     tscVueSrcCommand: `${tscVueSrcCommand} --watch`,
     tscReactSrcCommand: `${tscReactSrcCommand} --watch`,
-    tscVueDemoCommand: `${tscVueDemoCommand} --watch`,
-    tscReactDemoCommand: `${tscReactDemoCommand} --watch`,
     webpackVueCommand: `${webpackVueCommand} --watch`,
     webpackReactCommand: `${webpackReactCommand} --watch`,
     less: () => watch(['src/**/*.less'], [], () => executeScriptAsync(cssCommand)),
     rev: `${revStaticCommand} --watch`
-  },
-  screenshot: [
-    new Service(`http-server -p 8000`),
-    `tsc -p screenshots`,
-    `node screenshots/index.js`
-  ]
+  }
 }

@@ -8,7 +8,7 @@ const TabPage: React.StatelessComponent<{ data: number }> = props => <button>{pr
 
 const CustomTitle: React.StatelessComponent<{ data: { title: string; count: number } }> = props => <a href='javascript:void' style={{ color: 'red' }}>{props.data.title}{props.data.count > 0 ? `(${props.data.count})` : ''}</a>
 
-class Main extends React.Component<{}, {}> {
+class Main extends React.Component<unknown, unknown> {
   private data: TabContainerData[] = [
     {
       isActive: true,

@@ -31,7 +31,8 @@ A vuejs and reactjs tab container component.
 `npm i tab-container-vue-component`
 
 ```ts
-import "tab-container-vue-component";
+import { TabContainer } from "tab-container-vue-component";
+app.component('tab-container', TabContainer)
 ```
 
 or
@@ -97,6 +98,14 @@ export type TabContainerData = {
 ```
 
 ## change logs
+
+```ts
+// v3 vue 2
+import 'tab-container-vue-component'
+// v4 vue 3
+import { TabContainer } from "tab-container-vue-component";
+app.component('tab-container', TabContainer)
+```
 
 ```bash
 # v2

@@ -1,6 +1,6 @@
 {
   "name": "tab-container-vue-component",
-  "version": "3.3.1",
+  "version": "4.0.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "unpkg": "dist/tab-container-vue-component.min.js",
@@ -17,12 +17,11 @@
     "url": "https://github.com/plantain-00/tab-container-component/issues"
   },
   "homepage": "https://github.com/plantain-00/tab-container-component#readme",
-  "files": [
-    "dist"
-  ],
   "dependencies": {
-    "tab-container-component": "^3.3.1",
-    "vue": "2",
-    "vue-class-component": "7"
+    "tab-container-component": "^4.0.0",
+    "vue": "3"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
