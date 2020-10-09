@@ -17,16 +17,16 @@
     "url": "https://github.com/plantain-00/tab-container-component/issues"
   },
   "homepage": "https://github.com/plantain-00/tab-container-component#readme",
-  "files": [
-    "dist"
-  ],
   "dependencies": {
     "react": "16",
     "react-dom": "16",
     "tab-container-component": "^3.3.1"
   },
   "devDependencies": {
-    "@types/react": "16.9.17",
-    "@types/react-dom": "16.9.4"
+    "@types/react": "16.9.51",
+    "@types/react-dom": "16.9.8"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }

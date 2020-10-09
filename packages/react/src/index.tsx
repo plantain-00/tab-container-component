@@ -9,7 +9,7 @@ export class TabContainer extends React.Component<{
   data: common.TabContainerData[];
   close?: (index: number) => void;
   switching?: (index: number) => void;
-}, {}> {
+}, unknown> {
   private hoveringItem: common.TabContainerData | null = null
   private getTabClass = common.getTabClass
 
@@ -25,7 +25,7 @@ export class TabContainer extends React.Component<{
           className={this.getTabClass(item, i)}
           onClick={() => this.clickTab(i)}
           onMouseEnter={() => this.mouseenter(item)}
-          onMouseLeave={() => this.mouseleave(item)}>
+          onMouseLeave={() => this.mouseleave()}>
           {title}
           {closeIcon}
         </li>
@@ -71,7 +71,7 @@ export class TabContainer extends React.Component<{
     this.setState({ hoveringItem: this.hoveringItem })
   }
 
-  private mouseleave(item: common.TabContainerData) {
+  private mouseleave() {
     this.hoveringItem = null
     this.setState({ hoveringItem: this.hoveringItem })
   }

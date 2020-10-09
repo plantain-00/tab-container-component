@@ -1,10 +1,12 @@
-module.exports = {
+import { ConfigData } from 'rev-static'
+
+const config: ConfigData = {
   inputFiles: [
     'packages/@(vue|react|angular)/demo/**/*.bundle.js',
     'packages/@(vue|react|angular)/demo/**/*.ejs.html',
     'packages/core/demo/*.bundle.css'
   ],
-  outputFiles: file => file.replace('.ejs', ''),
+  outputFiles: (file) => file.replace('.ejs', ''),
   ejsOptions: {
     rmWhitespace: true
   },
@@ -13,3 +15,5 @@ module.exports = {
   base: 'packages',
   fileSize: 'file-size.json'
 }
+
+export default config

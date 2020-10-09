@@ -1,44 +1,46 @@
-import Vue from 'vue'
-import Component from 'vue-class-component'
+import { defineComponent, PropType } from 'vue'
 import * as common from 'tab-container-component'
 export * from 'tab-container-component'
-import { indexTemplateHtml, indexTemplateHtmlStatic } from './variables'
+import { indexTemplateHtml } from './variables'
 
-@Component({
+/**
+ * @public
+ */
+export const TabContainer = defineComponent({
   render: indexTemplateHtml,
-  staticRenderFns: indexTemplateHtmlStatic,
-  props: ['data']
+  props: {
+    data: {
+      type: Array as PropType<common.TabContainerData[]>,
+      required: true,
+    }
+  },
+  data: () => {
+    return {
+      hoveringItem: null as common.TabContainerData | null,
+      getTabClass: common.getTabClass
+    }
+  },
+  methods: {
+    clickTab(index: number) {
+      this.$emit('switching', index)
+      const item = this.data[index]
+      if (item.isActive) {
+        return
+      }
+      for (const itemData of this.data) {
+        itemData.isActive = false
+      }
+      item.isActive = true
+    },
+    mouseenter(item: common.TabContainerData) {
+      this.hoveringItem = item
+    },
+    mouseleave() {
+      this.hoveringItem = null
+    },
+    close(e: MouseEvent, index: number) {
+      e.stopPropagation()
+      this.$emit('close', index)
+    },
+  }
 })
-export class TabContainer extends Vue {
-  data!: common.TabContainerData[]
-
-  hoveringItem: common.TabContainerData | null = null
-  getTabClass = common.getTabClass
-
-  clickTab(index: number) {
-    this.$emit('switching', index)
-    const item = this.data[index]
-    if (item.isActive) {
-      return
-    }
-    for (const itemData of this.data) {
-      itemData.isActive = false
-    }
-    item.isActive = true
-  }
-
-  mouseenter(item: common.TabContainerData) {
-    this.hoveringItem = item
-  }
-
-  mouseleave(item: common.TabContainerData) {
-    this.hoveringItem = null
-  }
-
-  close(e: MouseEvent, index: number) {
-    e.stopPropagation()
-    this.$emit('close', index)
-  }
-}
-
-Vue.component('tab-container', TabContainer)
