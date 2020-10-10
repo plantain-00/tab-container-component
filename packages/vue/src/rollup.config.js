@@ -15,10 +15,6 @@ export default {
     format: 'umd'
   },
   external: [
-    'vue',
-    'vue-class-component'
-  ],
-  globals: {
-    'vue-class-component': 'VueClassComponent'
-  }
+    'vue'
+  ]
 }
