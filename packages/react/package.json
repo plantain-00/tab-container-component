@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/plantain-00/tab-container-component#readme",
   "dependencies": {
-    "react": "16",
-    "react-dom": "16",
+    "react": "17",
+    "react-dom": "17",
     "tab-container-component": "^4.0.0"
   },
   "devDependencies": {
