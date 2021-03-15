@@ -1,4 +1,4 @@
-import { Configuration } from 'webpack'
+import * as webpack from 'webpack'
 
 export default {
   mode: process.env.NODE_ENV,
@@ -12,10 +12,15 @@ export default {
     path: __dirname,
     filename: 'index.bundle.js'
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      __VUE_PROD_DEVTOOLS__: false,
+    }),
+  ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
       'vue$': 'vue/dist/vue.esm-bundler.js'
     }
   }
-} as Configuration
+} as webpack.Configuration
