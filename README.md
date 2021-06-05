@@ -2,7 +2,6 @@
 
 [![Dependency Status](https://david-dm.org/plantain-00/tab-container-component.svg)](https://david-dm.org/plantain-00/tab-container-component)
 [![devDependency Status](https://david-dm.org/plantain-00/tab-container-component/dev-status.svg)](https://david-dm.org/plantain-00/tab-container-component#info=devDependencies)
-[![Build Status: Linux](https://travis-ci.org/plantain-00/tab-container-component.svg?branch=master)](https://travis-ci.org/plantain-00/tab-container-component)
 [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/github/plantain-00/tab-container-component?branch=master&svg=true)](https://ci.appveyor.com/project/plantain-00/tab-container-component/branch/master)
 [![npm version](https://badge.fury.io/js/tab-container-component.svg)](https://badge.fury.io/js/tab-container-component)
 [![Downloads](https://img.shields.io/npm/dm/tab-container-component.svg)](https://www.npmjs.com/package/tab-container-component)
