@@ -23,7 +23,7 @@ export const TabContainer = defineComponent({
   methods: {
     clickTab(index: number) {
       this.$emit('switching', index)
-      const item = this.data[index]
+      const item = this.data[index]!
       if (item.isActive) {
         return
       }
