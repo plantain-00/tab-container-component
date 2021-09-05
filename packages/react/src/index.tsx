@@ -55,7 +55,7 @@ export class TabContainer extends React.Component<{
     if (this.props.switching) {
       this.props.switching(index)
     }
-    const item = this.props.data[index]
+    const item = this.props.data[index]!
     if (item.isActive) {
       return
     }
